@@ -7,6 +7,12 @@ from .models import Women
 from .serializers import WomenSerializer
 
 
+# Это представление реализует сразу два метода: get и post
+class WomenAPIList(generics.ListCreateAPIView):
+    queryset = Women.objects.all()
+    serializer_class = WomenSerializer
+
+
 class WomenAPIView(APIView):
     def get(self, request):
         w = Women.objects.all()
@@ -44,5 +50,5 @@ class WomenAPIView(APIView):
             obj.delete()
         except:
             return Response({"error": "Object does not exist"})
-        
+
         return Response({"post": "delete post " + str(pk)})
