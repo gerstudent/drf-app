@@ -1,19 +1,8 @@
-from rest_framework import generics
+from rest_framework import generics, viewsets
 from .models import Women
 from .serializers import WomenSerializer
 
 
-# Это представление реализует сразу два метода: get и post
-class WomenAPIList(generics.ListCreateAPIView):
-    queryset = Women.objects.all()
-    serializer_class = WomenSerializer
-
-
-class WomenAPIUpdate(generics.UpdateAPIView):
-    queryset = Women.objects.all()  # ленивый запрос
-    serializer_class = WomenSerializer
-
-
-class WomenAPIDetailView(generics.RetrieveUpdateDestroyAPIView):
+class WomenViewSet(viewsets.ModelViewSet):
     queryset = Women.objects.all()
     serializer_class = WomenSerializer
