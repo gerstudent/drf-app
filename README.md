@@ -31,7 +31,7 @@ To run this project in your development machine, follow these steps:
 
 3. Fork this repo and clone your fork:
 
-   `git clone https://github.com/gerstudent/drf_app`
+   `git clone https://github.com/gerstudent/drf-app`
 
 4. Install dependencies:
 
